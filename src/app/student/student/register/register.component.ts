@@ -169,7 +169,7 @@ export class RegisterComponent implements OnInit {
 
   submitted!: string;
   formData!: FormDataInterface;
-  @Input() title!: string;
+  @Input() title: string = "student";
   add() {
     if (this.registerForm.valid) {
       this.submitted = "Submitted";
