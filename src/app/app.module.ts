@@ -23,6 +23,7 @@ import {MatTableModule} from '@angular/material/table';
 import { TableComponent } from './student/student/table/table.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { TeacherComponent } from './teacher/teacher.component';
+import { CoursesComponent } from './courses/courses.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TeacherComponent } from './teacher/teacher.component';
     NavbarComponent,
     StudentComponent,
     TableComponent,
-    TeacherComponent
+    TeacherComponent,
+    CoursesComponent
 
   ],
   imports: [

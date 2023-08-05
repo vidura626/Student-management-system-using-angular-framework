@@ -5,6 +5,7 @@ import {StudentComponent} from "./app/student/student/student.component";
 import {RegisterComponent} from "./app/student/student/register/register.component";
 import {TableComponent} from "./app/student/student/table/table.component";
 import {TeacherComponent} from "./app/teacher/teacher.component";
+import {CoursesComponent} from "./app/courses/courses.component";
 
 const routes: Routes = [
   {
@@ -18,7 +19,11 @@ const routes: Routes = [
     path: "teacher", component: TeacherComponent,
     children: []
   },
-  {path: "", redirectTo: "/student", pathMatch: "full"},
+  {
+    path:"course",
+    component:CoursesComponent
+  },
+  {path: "", redirectTo: "/student", pathMatch: "full"}
 ]
 
 @NgModule({
