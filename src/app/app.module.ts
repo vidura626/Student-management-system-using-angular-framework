@@ -24,6 +24,7 @@ import { TableComponent } from './student/student/table/table.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { TeacherComponent } from './teacher/teacher.component';
 import { CoursesComponent } from './courses/courses.component';
+import { RegisterCourseComponent } from './courses/register-course/register-course.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CoursesComponent } from './courses/courses.component';
     StudentComponent,
     TableComponent,
     TeacherComponent,
-    CoursesComponent
+    CoursesComponent,
+    RegisterCourseComponent
 
   ],
   imports: [
