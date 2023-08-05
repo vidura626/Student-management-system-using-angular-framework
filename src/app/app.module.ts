@@ -22,6 +22,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import { TableComponent } from './student/student/table/table.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { TeacherComponent } from './teacher/teacher.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AppRoutingModule } from '../app-routing.module';
     RegisterComponent,
     NavbarComponent,
     StudentComponent,
-    TableComponent
+    TableComponent,
+    TeacherComponent
 
   ],
   imports: [
