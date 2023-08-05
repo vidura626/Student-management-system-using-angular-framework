@@ -1,0 +1,180 @@
+<h1 class="h1 p-2 fw-bold">STUDENT REGISTRATION FORM</h1>
+
+<!--<div>Pristine : {{registerForm.pristine | json}}</div>
+<div>valid : {{registerForm.valid | json}}</div>
+<div>invalid : {{registerForm.invalid| json}}</div>
+<div>value : {{registerForm.value | json}}</div>
+<br>-->
+
+<form [formGroup]="registerForm" class="registerForm" (ngSubmit)="addStudent()" (reset)="resetForm(registerForm)">
+
+  <!--StudentInterface ID-->
+  <div>
+    <mat-form-field>
+      <mat-label>StudentInterface ID</mat-label>
+      <input type="text" formControlName="id" matInput readonly value="S-001">
+    </mat-form-field>
+  </div>
+
+  <!--  NIC-->
+  <mat-form-field class="half-width">
+    <mat-label>NIC</mat-label>
+    <input type="text" formControlName="nic" matInput>
+
+  </mat-form-field>
+
+  <!--  First and Last Name-->
+  <table class="full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="full-width">
+          <mat-label>First name</mat-label>
+          <input type="text" formControlName="fName" matInput>
+        </mat-form-field>
+        <div>
+        </div>
+      </td>
+      <td>
+        <mat-form-field class="full-width">
+          <mat-label>Last Name</mat-label>
+          <input type="text" formControlName="lName" matInput>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <!--  Email and Gender and Birthday-->
+  <table class="full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="form-field full-width">
+          <mat-label>Email</mat-label>
+          <input type="email" formControlName="email" matInput>
+        </mat-form-field>
+        <div>
+        </div>
+      </td>
+      <td>
+        <mat-form-field class="full-width form-field">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option value="1">Male</mat-option>
+            <mat-option value="2">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="full-width form-field">
+          <mat-label>Birthday</mat-label>
+          <input #date formControlName="birthday" matInput [matDatepicker]="datepicker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+          <mat-datepicker #datepicker>
+            <mat-datepicker-actions>
+              <button mat-button matDatepickerCancel>Cancel</button>
+              <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+            </mat-datepicker-actions>
+          </mat-datepicker>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <!--  Address-->
+  <mat-accordion formGroupName="address" class="headers-align" multi>
+    <mat-expansion-panel class="mb-5">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Address
+        </mat-panel-title>
+        <mat-panel-description>
+          Type your address
+          <!--          <mat-icon>account_circle</mat-icon>-->
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>
+        <mat-form-field class="full-width">
+          <mat-label>Street Address</mat-label>
+          <textarea formControlName="line01" matInput placeholder="Ex. 100 Main St"></textarea>
+        </mat-form-field>
+      </p>
+      <table class="table full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="full-width">
+              <mat-label>Town</mat-label>
+              <input formControlName="town" matInput placeholder="Ex. Pinwatta">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="full-width">
+              <mat-label>District</mat-label>
+              <input formControlName="district" matInput placeholder="Ex. Panadura">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="full-width">
+              <mat-label>Postal Code</mat-label>
+              <input formControlName="postalCode" matInput #postalCode maxlength="5" placeholder="Ex. 94105">
+              <!--          <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>-->
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <!--  Contact form array-->
+  <mat-accordion class="headers-align" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Contacts
+        </mat-panel-title>
+        <mat-panel-description>
+          Type your contact number and description for it
+          <!--          <mat-icon>account_circle</mat-icon>-->
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!--  Add contact btn-->
+      <div>
+        <button class="mb-3" mat-raised-button color="primary" type="button"
+                (click)="addContact()">
+          Add Contact
+        </button>
+      </div>
+      <div formArrayName="contacts">
+        <table *ngFor="let contact of getContacts.controls; let i = index;" class="full-width">
+          <tr [formGroupName]="i">
+            <td>
+              <mat-form-field class="full-width">
+                <mat-label>Description</mat-label>
+                <input formControlName="description" type="text" matInput placeholder="Ex. Home">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="full-width">
+                <mat-label>Number</mat-label>
+                <input formControlName="number" type="tel" matInput placeholder="Ex. 07xxxxxxxx">
+              </mat-form-field>
+            </td>
+            <td>
+              <div>
+                <button class="btn-width" mat-raised-button color="warn" type="button"
+                        (click)="removeContact(i)">Remove
+                </button>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <div class="example-button-row">
+    <button class="btn-width" type="reset" mat-raised-button color="warn">Reset</button>
+    <button class="btn-width" mat-raised-button color="primary">Register</button>
+  </div>
+</form>
+
+<div>{{submitted}}</div>

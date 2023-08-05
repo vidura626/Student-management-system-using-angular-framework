@@ -1,0 +1,36 @@
+.registerForm {
+  min-width: 150px;
+  /*max-width: 500px;*/
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+.half-width{
+  width: 50%;
+}
+td {
+  padding-right: 8px;
+}
+.form-field {
+  margin-right: 20px;
+}
+
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
+}
+
+.btn-width{
+  min-width: 100px;
+  margin: 1rem;
+}
