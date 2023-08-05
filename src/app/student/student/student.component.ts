@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {StudentInterface} from "./register/student.interface";
+import {FormDataInterface} from "./register/formDataInterface";
 
 @Component({
   selector: 'wije-student',

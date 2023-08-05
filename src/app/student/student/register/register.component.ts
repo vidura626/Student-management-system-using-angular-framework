@@ -1,7 +1,7 @@
-import {Component, OnInit, Output, ViewChild, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, ViewChild, EventEmitter, Input} from '@angular/core';
 import {FormGroup, FormControl, Validators, FormArray, FormBuilder} from "@angular/forms";
 import {StudentService} from "../../../../db/student.service";
-import {StudentInterface} from "./student.interface";
+import {FormDataInterface} from "./formDataInterface";
 
 @Component({
   selector: 'wije-register',
@@ -11,7 +11,7 @@ import {StudentInterface} from "./student.interface";
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
 
-  studentsList!: StudentInterface;
+  studentsList!: FormDataInterface;
 
   // @ViewChild(MatAccordion) accordion: MatAccordion;
 
@@ -165,13 +165,16 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  @Output() dataform = new EventEmitter<any>();
+
   submitted!: string;
-  student!: StudentInterface;
-  addStudent() {
+  formData!: FormDataInterface;
+  @Input() title!: string;
+  add() {
     if (this.registerForm.valid) {
       this.submitted = "Submitted";
 
-      this.student = {
+      this.formData = {
         id: this.registerForm.get('id')?.value,
         fName: this.registerForm.get('fName')?.value,
         lName: this.registerForm.get('lName')?.value,
@@ -181,7 +184,8 @@ export class RegisterComponent implements OnInit {
         contact: this.registerForm.get('contacts')?.value,
         birthday: this.registerForm.get('birthday')?.value as Date,
       }
-      this.studentService.studentsAr = [...this.studentService.studentsAr, this.student];
+      this.dataform.emit(this.formData);
+      this.studentService.studentsAr = [...this.studentService.studentsAr, this.formData];
       this.submitted = "Submitted";
     } else {
       this.submitted = "Submit Failed";

@@ -1,6 +1,6 @@
 import {FormControl, Validators} from "@angular/forms";
 
-export interface StudentInterface {
+export interface FormDataInterface {
   id: string;
   fName: string,
   lName: string,

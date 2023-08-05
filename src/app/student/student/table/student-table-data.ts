@@ -1,4 +1,4 @@
-import {ContactInterface} from "../register/student.interface";
+import {ContactInterface} from "../register/formDataInterface";
 
 export interface StudentTableData {
   id: string,

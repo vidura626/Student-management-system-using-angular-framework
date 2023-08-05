@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ContactInterface, StudentInterface} from "../register/student.interface";
+import {ContactInterface, FormDataInterface} from "../register/formDataInterface";
 import {StudentService} from "../../../../db/student.service";
 
 
@@ -9,19 +9,19 @@ import {StudentService} from "../../../../db/student.service";
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  allStudents: StudentInterface[] = [];
+  allData: FormDataInterface[] = [];
   studentTblDataSource: any[] = [];
 
   constructor(private studentService: StudentService) {
   }
 
   ngOnInit(): void {
-    this.allStudents = this.studentService.getAllStudents();
+    this.allData = this.studentService.getAllStudents();
     this.setTable();
   }
 
   setTable() {
-    for (const event of this.allStudents) {
+    for (const event of this.allData) {
       let student = {
         id: event.id,
         name: event.fName.concat(" ").concat(event.lName),

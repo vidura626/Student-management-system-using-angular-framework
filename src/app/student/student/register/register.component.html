@@ -1,4 +1,4 @@
-<h1 class="h1 p-2 fw-bold">STUDENT REGISTRATION FORM</h1>
+<h1 class="h1 p-2 fw-bold">{{title | uppercase}} REGISTRATION FORM</h1>
 
 <!--<div>Pristine : {{registerForm.pristine | json}}</div>
 <div>valid : {{registerForm.valid | json}}</div>
@@ -6,12 +6,12 @@
 <div>value : {{registerForm.value | json}}</div>
 <br>-->
 
-<form [formGroup]="registerForm" class="registerForm" (ngSubmit)="addStudent()" (reset)="resetForm(registerForm)">
+<form [formGroup]="registerForm" class="registerForm" (ngSubmit)="add()" (reset)="resetForm(registerForm)">
 
   <!--StudentInterface ID-->
   <div>
     <mat-form-field>
-      <mat-label>StudentInterface ID</mat-label>
+      <mat-label>ID</mat-label>
       <input type="text" formControlName="id" matInput readonly value="S-001">
     </mat-form-field>
   </div>

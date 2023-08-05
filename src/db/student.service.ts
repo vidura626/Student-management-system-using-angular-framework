@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
-import {StudentInterface} from "../app/student/student/register/student.interface";
+import {FormDataInterface} from "../app/student/student/register/formDataInterface";
 import {elementAt} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
-
-
-
 
   constructor() { }
 
@@ -20,8 +17,9 @@ export class StudentService {
 
   }
 
-  public studentsAr:StudentInterface[]=[];
-  saveStudent(student: StudentInterface):boolean {
+  public studentsAr:FormDataInterface[]=[];
+
+  saveStudent(student: FormDataInterface):boolean {
     console.log(student);
     this.studentsAr.push(student);
     return true;
@@ -35,7 +33,7 @@ export class StudentService {
     return find;
   }
 
-  getAllStudents():StudentInterface[]{
+  getAllStudents():FormDataInterface[]{
     return this.studentsAr;
   }
 }
