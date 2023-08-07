@@ -6,7 +6,12 @@
 
 .example-full-width {
   width: 100%;
+  padding-right: 1rem;
 }
 .file-name {
   margin-left: 1rem; /* or whatever margin you require */
+}
+.btn-width{
+  min-width: 100px;
+  margin: 1rem;
 }

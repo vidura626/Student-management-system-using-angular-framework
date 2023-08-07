@@ -12,7 +12,9 @@ export class RegisterCourseComponent implements OnInit{
 
   teachersID:string[] = [];
   registerCourse!:FormGroup;
-  constructor(private fb:FormBuilder, private teacherService:TeacherService) {
+  subjectIDs: any;
+  constructor(private fb:FormBuilder,
+              private teacherService:TeacherService) {
 
   }
 
@@ -42,7 +44,7 @@ export class RegisterCourseComponent implements OnInit{
         validators:[Validators.required],
         updateOn:"blur"
       }),
-      cost:new FormControl('',{
+      price:new FormControl('',{
         validators:[Validators.required]
     })
 
@@ -59,10 +61,8 @@ export class RegisterCourseComponent implements OnInit{
       console.log(teacher);
     }
   }
-  selectedFile: any = null;
 
-  onFileSelected(event:any): void {
-    console.log(event);
-    this.selectedFile = event.target.files[0];
+  setSubjectIDs() {
+
   }
 }

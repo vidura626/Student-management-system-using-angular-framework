@@ -1,42 +1,76 @@
 <form [formGroup]="registerCourse" class="example-form">
+
   <mat-form-field>
     <mat-label>Course ID</mat-label>
     <input type="text" matInput formControlName="id" placeholder="Ex. C-001">
-<!--    <mat-error *ngIf="id.hasError('email') && !emailFormControl.hasError('required')">-->
-<!--      Please enter a valid email address-->
-<!--    </mat-error>-->
-<!--    <mat-error *ngIf="id.hasError('required')">-->
-<!--      Email is <strong>required</strong>-->
-<!--    </mat-error>-->
   </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Course Name</mat-label>
-    <input type="text" matInput formControlName="name" placeholder="Ex. Angular 16 Course">
-    <mat-error *ngIf="registerCourse.get('name')?.hasError('required')">
-      Course Name is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
+  <table class="example-full-width" cellpadding="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Course Name</mat-label>
+          <input type="text" matInput formControlName="name" placeholder="Ex. Angular 16 Course">
+          <mat-error *ngIf="registerCourse.get('name')?.hasError('required')">
+            Course Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td colspan="2">
+        <p>
+          <mat-form-field class="example-full-width">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="description" matInput placeholder="Ex. Describe about your course...."></textarea>
+            <mat-error *ngIf="registerCourse.get('description')?.hasError('required')">
+              Description is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </p>
 
+      </td>
+    </tr>
+  </table>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Description</mat-label>
-    <input type="text" matInput formControlName="description" placeholder="Ex. Angular for beginners">
-    <mat-error *ngIf="registerCourse.get('description')?.hasError('required')">
-      Description is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
+  <wije-image-upload [btnName]="'Add Cover Photo'" [formControlName]="'image'"></wije-image-upload>
 
-<!--  <wije-image-upload [btnName]="'Choose Image'" [formControlName]="'image'"></wije-image-upload>-->
+  <table class="example-full-width" cellpadding="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Select Teacher</mat-label>
+          <mat-select (click)="setTeacherIDs()">
+            <mat-option>Clear</mat-option>
+            <mat-option *ngFor="let teacher of teachersID" value='1'>{{teacher}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="registerCourse.get('teacherID')?.hasError('required')">You must make a selection</mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Select Subject</mat-label>
+          <mat-select (click)="setSubjectIDs()" formControlName="subjectID">
+            <mat-option>Clear</mat-option>
+            <mat-option *ngFor="let subject of subjectIDs" value='1'>{{subject}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="registerCourse.get('subjectID')?.hasError('required')">You must make a selection</mat-error>
+        </mat-form-field>
+      </td>
 
-  <h4>mat-select</h4>
-  <mat-form-field>
-    <mat-label>Select Teacher</mat-label>
-    <mat-select (click)="setTeacherIDs()" formControlName="teacherID">
-      <mat-option>Clear</mat-option>
-      <mat-option *ngFor="let teacher of teachersID" value='1'>{{teacher}}</mat-option>
-    </mat-select>
-    <mat-error *ngIf="registerCourse.get('teacherID')?.hasError('required')">You must make a selection</mat-error>
-  </mat-form-field>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Price</mat-label>
+          <input type="number" matInput formControlName="price" placeholder="Ex. Rs25,000.00">
+          <mat-error *ngIf="registerCourse.get('price')?.hasError('required')">
+            Price is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <div class="example-button-row">
+    <button class="btn-width" type="reset" mat-raised-button color="warn">Reset</button>
+    <button class="btn-width" mat-raised-button color="primary">Register</button>
+  </div>
 </form>
 
