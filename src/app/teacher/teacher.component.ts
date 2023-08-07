@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ViewChild, ViewContainerRef} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {RegisterComponent} from "../student/student/register/register.component";
 import {TableComponent} from "../student/student/table/table.component";
 import {Router} from "@angular/router";
@@ -10,7 +10,7 @@ import {FormDataInterface} from "../student/student/register/formDataInterface";
   templateUrl: './teachers.component.html',
   styleUrls: ['./teachers.component.css']
 })
-export class TeacherComponent implements AfterViewInit {
+export class TeacherComponent implements OnInit {
   teachersList: FormDataInterface[] = [];
   showReg: boolean = false;
 
@@ -25,14 +25,13 @@ export class TeacherComponent implements AfterViewInit {
   constructor(private teacherService: TeacherService) {
   }
 
-  ngAfterViewInit(): void {
-
-  }
-
-
   saveTeacher(event: any) {
     this.teacherService.saveTeacher(event);
     this.teachersList = this.teacherService.getAllTeachers();
     this.teachersList = [...this.teachersList];
+  }
+
+  ngOnInit(): void {
+    this.teachersList = this.teacherService.getAllTeachers();
   }
 }

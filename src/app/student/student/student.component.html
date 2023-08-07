@@ -1,4 +1,5 @@
-<button mat-raised-button routerLink="">Register</button>
-<button mat-raised-button routerLink="view">View Students</button>
-<router-outlet></router-outlet>
+<button mat-raised-button (click)="navigate(1)">Register</button>
+<button mat-raised-button (click)="navigate(2)">View Students</button>
 
+<wije-register *ngIf="!showReg" [title]="'Student'" (dataOutput)="addStudent($event)"></wije-register>
+<wije-table *ngIf="showReg" [allData]="studentList"></wije-table>
