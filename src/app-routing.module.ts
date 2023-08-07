@@ -6,6 +6,7 @@ import {RegisterComponent} from "./app/student/student/register/register.compone
 import {TableComponent} from "./app/student/student/table/table.component";
 import {TeacherComponent} from "./app/teacher/teacher.component";
 import {CoursesComponent} from "./app/courses/courses.component";
+import {RegisterCourseComponent} from "./app/courses/register-course/register-course.component";
 
 const routes: Routes = [
   {
@@ -20,8 +21,11 @@ const routes: Routes = [
     children: []
   },
   {
-    path:"course",
-    component:CoursesComponent
+    path: "course",
+    component: CoursesComponent,
+    children: [
+      {path: "register", component: RegisterCourseComponent}
+    ]
   },
   {path: "", redirectTo: "/student", pathMatch: "full"}
 ]

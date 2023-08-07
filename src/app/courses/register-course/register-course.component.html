@@ -1,0 +1,32 @@
+<form [formGroup]="registerCourse" class="example-form">
+  <mat-form-field>
+    <mat-label>Course ID</mat-label>
+    <input type="text" matInput formControlName="id" placeholder="Ex. C-001">
+<!--    <mat-error *ngIf="id.hasError('email') && !emailFormControl.hasError('required')">-->
+<!--      Please enter a valid email address-->
+<!--    </mat-error>-->
+<!--    <mat-error *ngIf="id.hasError('required')">-->
+<!--      Email is <strong>required</strong>-->
+<!--    </mat-error>-->
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Course Name</mat-label>
+    <input type="text" matInput formControlName="name" placeholder="Ex. Angular 16 Course">
+    <mat-error *ngIf="registerCourse.get('name')?.hasError('required')">
+      Course Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <input type="text" matInput formControlName="description" placeholder="Ex. Angular for beginners">
+    <mat-error *ngIf="registerCourse.get('description')?.hasError('required')">
+      Description is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <wije-image-upload [btnName]="'Choose Image'" [formControlName]="'image'"></wije-image-upload>
+</form>
+

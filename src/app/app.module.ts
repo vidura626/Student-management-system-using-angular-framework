@@ -25,6 +25,9 @@ import { AppRoutingModule } from '../app-routing.module';
 import { TeacherComponent } from './teacher/teacher.component';
 import { CoursesComponent } from './courses/courses.component';
 import { RegisterCourseComponent } from './courses/register-course/register-course.component';
+import {MatCardModule} from '@angular/material/card';
+import { ImageUploadComponent } from './student/student/register/image-upload/image-upload.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { RegisterCourseComponent } from './courses/register-course/register-cour
     TableComponent,
     TeacherComponent,
     CoursesComponent,
-    RegisterCourseComponent
+    RegisterCourseComponent,
+    ImageUploadComponent
 
   ],
   imports: [
@@ -62,6 +66,7 @@ import { RegisterCourseComponent } from './courses/register-course/register-cour
     MatSelectModule,
     MatTableModule,
     AppRoutingModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

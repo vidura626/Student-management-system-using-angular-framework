@@ -1,0 +1,11 @@
+<mat-grid-list cols="6" rowHeight="1:1">
+  <mat-grid-tile *ngIf="selectedImageURL">
+    <mat-card aria-colspan="2" class="example-card example-header-image" >
+      <img mat-card-image [src]="selectedImageURL" alt=selectedImage.files?.item(0).name)>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <button mat-raised-button (click)="selectedImage.click()">{{btnName || "Choose File"}}</button>
+    <input hidden #selectedImage (change)="onSelectedFile(selectedImage.files?.item(0))" type="file">
+  </mat-grid-tile>
+</mat-grid-list>
