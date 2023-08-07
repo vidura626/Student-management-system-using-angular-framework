@@ -9,10 +9,11 @@ import {FormDataInterface} from "./formDataInterface";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  @Output() dataOutput = new EventEmitter<any>();
+  @Input() title: string = "student";
+
   registerForm!: FormGroup;
-
   studentsList!: FormDataInterface;
-
   // @ViewChild(MatAccordion) accordion: MatAccordion;
 
   constructor(private formBuilder: FormBuilder,
@@ -165,15 +166,10 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  @Output() dataform = new EventEmitter<any>();
-
   submitted!: string;
   formData!: FormDataInterface;
-  @Input() title: string = "student";
   add() {
     if (this.registerForm.valid) {
-      this.submitted = "Submitted";
-
       this.formData = {
         id: this.registerForm.get('id')?.value,
         fName: this.registerForm.get('fName')?.value,
@@ -184,11 +180,7 @@ export class RegisterComponent implements OnInit {
         contact: this.registerForm.get('contacts')?.value,
         birthday: this.registerForm.get('birthday')?.value as Date,
       }
-      this.dataform.emit(this.formData);
-      this.studentService.studentsAr = [...this.studentService.studentsAr, this.formData];
-      this.submitted = "Submitted";
-    } else {
-      this.submitted = "Submit Failed";
+      this.dataOutput.emit(this.formData);
     }
   }
 

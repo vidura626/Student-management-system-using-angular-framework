@@ -17,9 +17,9 @@ export class TeacherService {
 
   public teachersAr:FormDataInterface[]=[];
 
-  saveTeacher(student: FormDataInterface):boolean {
-    console.log(student);
-    this.teachersAr.push(student);
+  saveTeacher(teacher: FormDataInterface):boolean {
+    console.log(teacher);
+    this.teachersAr.push(teacher);
     return true;
   }
 

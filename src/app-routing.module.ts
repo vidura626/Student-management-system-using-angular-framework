@@ -18,7 +18,10 @@ const routes: Routes = [
   },
   {
     path: "teacher", component: TeacherComponent,
-    children: []
+    children: [
+      {path: "", component: RegisterComponent},
+      {path: "view", component: TableComponent,},
+    ]
   },
   {
     path: "course",

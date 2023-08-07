@@ -27,6 +27,16 @@
     </mat-error>
   </mat-form-field>
 
-  <wije-image-upload [btnName]="'Choose Image'" [formControlName]="'image'"></wije-image-upload>
+<!--  <wije-image-upload [btnName]="'Choose Image'" [formControlName]="'image'"></wije-image-upload>-->
+
+  <h4>mat-select</h4>
+  <mat-form-field>
+    <mat-label>Select Teacher</mat-label>
+    <mat-select (click)="setTeacherIDs()" formControlName="teacherID">
+      <mat-option>Clear</mat-option>
+      <mat-option *ngFor="let teacher of teachersID" value='1'>{{teacher}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="registerCourse.get('teacherID')?.hasError('required')">You must make a selection</mat-error>
+  </mat-form-field>
 </form>
 

@@ -9,14 +9,13 @@ import {StudentService} from "../../../../db/student.service";
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  allData: FormDataInterface[] = [];
+  @Input() allData: FormDataInterface[] = [];
   studentTblDataSource: any[] = [];
 
   constructor(private studentService: StudentService) {
   }
 
   ngOnInit(): void {
-    this.allData = this.studentService.getAllStudents();
     this.setTable();
   }
 

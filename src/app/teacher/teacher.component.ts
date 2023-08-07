@@ -3,6 +3,7 @@ import {RegisterComponent} from "../student/student/register/register.component"
 import {TableComponent} from "../student/student/table/table.component";
 import {Router} from "@angular/router";
 import {TeacherService} from "../../db/teacher.service";
+import {FormDataInterface} from "../student/student/register/formDataInterface";
 
 @Component({
   selector: 'wije-teachers',
@@ -10,54 +11,28 @@ import {TeacherService} from "../../db/teacher.service";
   styleUrls: ['./teachers.component.css']
 })
 export class TeacherComponent implements AfterViewInit {
-  @ViewChild('formRegister', {read: ViewContainerRef}) vcr!: ViewContainerRef;
+  teachersList: FormDataInterface[] = [];
+  showReg: boolean = false;
 
-  constructor(private router: Router,
-              private teacherService: TeacherService) {
+  navigate(number: number) {
+    if (number === 1) {
+      this.showReg = false;
+    } else {
+      this.showReg = true;
+    }
   }
 
-  registerComponent!: any;
-  tableComponent!: any;
-  showRegister: boolean = false;
-  showView: boolean = false;
-  showOne: boolean = true;
+  constructor(private teacherService: TeacherService) {
+  }
 
   ngAfterViewInit(): void {
-    if (!this.showRegister) {
-      this.createRegister();
-    }
 
   }
 
-  createRegister() {
-    this.registerComponent = this.vcr.createComponent(RegisterComponent);
-    this.registerComponent.instance.title = "Teacher";
-    this.showRegister = true;
-  }
 
-  createTable() {
-    this.tableComponent = this.vcr.createComponent(TableComponent);
-    this.showView = true;
+  saveTeacher(event: any) {
+    this.teacherService.saveTeacher(event);
+    this.teachersList = this.teacherService.getAllTeachers();
+    this.teachersList = [...this.teachersList];
   }
-
-  registerTeacher() {
-    if (!this.showRegister) {
-      this.vcr.detach();
-      this.createRegister();
-      this.showView=false;
-    }
-    console.log(this.vcr);
-  }
-
-  viewTeachers() {
-    if (!this.showView) {
-      this.vcr.detach();
-      this.createTable();
-      this.showRegister=false;
-    }
-    this.teacherService.teachersAr = [this.registerComponent?.instance?.formData];
-    this.tableComponent.instance.allData = this.teacherService.teachersAr;
-    this.tableComponent.instance.setTable();
-  }
-
 }

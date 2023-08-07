@@ -28,7 +28,6 @@ import { RegisterCourseComponent } from './courses/register-course/register-cour
 import {MatCardModule} from '@angular/material/card';
 import { ImageUploadComponent } from './student/student/register/image-upload/image-upload.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

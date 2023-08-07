@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators} from "@angular/forms";
+import {TeacherService} from "../../../db/teacher.service";
+import {StudentService} from "../../../db/student.service";
 
 @Component({
   selector: 'wije-register-course',
@@ -8,8 +10,9 @@ import {FormBuilder, FormGroup, FormControl, Validators} from "@angular/forms";
 })
 export class RegisterCourseComponent implements OnInit{
 
+  teachersID:string[] = [];
   registerCourse!:FormGroup;
-  constructor(private fb:FormBuilder) {
+  constructor(private fb:FormBuilder, private teacherService:TeacherService) {
 
   }
 
@@ -44,8 +47,18 @@ export class RegisterCourseComponent implements OnInit{
     })
 
     });
+    // this.setTeacherIDs();
   }
 
+  setTeacherIDs() {
+    console.log("Teachers");
+    console.log(this.teacherService?.getAllTeachers());
+    this.teachersID = [];
+    for (let teacher of this.teacherService?.getAllTeachers()) {
+      this.teachersID.push(teacher.id.concat(' ').concat(teacher.fName)).toString();
+      console.log(teacher);
+    }
+  }
   selectedFile: any = null;
 
   onFileSelected(event:any): void {
