@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators} from "@angular/forms";
 import {TeacherService} from "../../../db/teacher.service";
-import {StudentService} from "../../../db/student.service";
 
 @Component({
   selector: 'wije-register-course',

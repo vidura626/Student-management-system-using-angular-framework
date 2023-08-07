@@ -7,6 +7,7 @@ import {TableComponent} from "./app/student/student/table/table.component";
 import {TeacherComponent} from "./app/teacher/teacher.component";
 import {CoursesComponent} from "./app/courses/courses.component";
 import {RegisterCourseComponent} from "./app/courses/register-course/register-course.component";
+import {SubjectComponent} from "./app/courses/subject/subject.component";
 
 const routes: Routes = [
   {
@@ -30,7 +31,11 @@ const routes: Routes = [
       {path: "register", component: RegisterCourseComponent}
     ]
   },
-  {path: "", redirectTo: "/student", pathMatch: "full"}
+  {
+    path: "subject", component: SubjectComponent
+  },
+  {path: "", redirectTo: "/student", pathMatch: "full"},
+
 ]
 
 @NgModule({
