@@ -15,3 +15,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .file-name {
   margin-left: 1rem; /* or whatever margin you require */
 }
+.btn-width{
+  min-width: 100px;
+  margin: 1rem;
+}

@@ -1,0 +1,14 @@
+.subject-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.subject-container>div {
+  width: 50%;
+}
+
+.subject-container>div>form>mat-form-field{
+  padding: 0.5rem;
+}
+

@@ -26,7 +26,6 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { CoursesComponent } from './courses/courses.component';
 import { RegisterCourseComponent } from './courses/register-course/register-course.component';
 import {MatCardModule} from '@angular/material/card';
-import { ImageUploadComponent } from './student/student/register/image-upload/image-upload.component';
 import { SubjectComponent } from './courses/subject/subject.component';
 
 @NgModule({
@@ -39,7 +38,6 @@ import { SubjectComponent } from './courses/subject/subject.component';
     TeacherComponent,
     CoursesComponent,
     RegisterCourseComponent,
-    ImageUploadComponent,
     SubjectComponent
 
   ],

@@ -31,8 +31,16 @@
     </tr>
   </table>
 
-  <wije-image-upload [btnName]="'Add Cover Photo'" [formControlName]="'image'"></wije-image-upload>
 
+  <table>
+    <tr>
+
+    </tr>
+    <tr>
+      <button mat-raised-button (click)="imageInput.click()">Choose Image</button>
+      <input formControlName="image" type="file" accept="image/*" hidden #imageInput (change)="getSelectedImage($event)">
+    </tr>
+  </table>
   <table class="example-full-width" cellpadding="0">
     <tr>
       <td>
