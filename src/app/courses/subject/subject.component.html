@@ -1,4 +1,3 @@
-
 <div class="subject-container">
   <div>
     <form [formGroup]="registerSubject" (ngSubmit)="addSubject(registerSubject)" (reset)="resetForm(registerSubject)">
@@ -17,20 +16,23 @@
         </mat-error>
       </mat-form-field>
 
-      <tr *ngIf="selectedImageURL">
-        <mat-card aria-colspan="2" class="example-card example-header-image">
-          <img mat-card-image [src]="selectedImageURL" alt=selectedImage.files?.item(0).name)>
-        </mat-card>
-      </tr>
-
-<!--      image upload-->
+      <table>
+        <tr *ngIf="selectedImageURL">
+          <img style="background-size: cover; width: 200px" [src]="selectedImageURL">
+        </tr>
+        <tr>
+          <button mat-raised-button type="button" (click)="imageInput.click()">Select Image</button>
+          <input hidden type="file" formControlName="image" #imageInput (change)="getSelectedImage($event)">
+        </tr>
+      </table>
 
       <div class="example-button-row">
         <button class="btn-width" type="reset" mat-raised-button color="warn">Reset</button>
-        <button class="btn-width" mat-raised-button color="primary">Register</button>
+        <button class="btn-width" type="submit" mat-raised-button color="primary">Register</button>
       </div>
     </form>
   </div>
+
   <div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -53,7 +55,5 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-
-
   </div>
 </div>

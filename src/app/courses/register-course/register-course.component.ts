@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators} from "@angular/forms";
 import {TeacherService} from "../../../db/teacher.service";
+import {SubjectService} from "../../../db/subject.service";
 
 @Component({
   selector: 'wije-register-course',
@@ -11,12 +12,14 @@ export class RegisterCourseComponent implements OnInit {
 
   teachersID: string[] = [];
   registerCourse!: FormGroup;
-  subjectIDs: any;
+  subjectIDs: string[] = [];
 
   constructor(private fb: FormBuilder,
-              private teacherService: TeacherService) {
+              private teacherService: TeacherService,
+              private subjectService:SubjectService) {
 
   }
+
 
   ngOnInit(): void {
     this.registerCourse = this.fb.group({
@@ -49,29 +52,43 @@ export class RegisterCourseComponent implements OnInit {
       })
 
     });
-    // this.setTeacherIDs();
+    this.setTeacherIDs();
+    this.setSubjectIDs();
   }
 
   setTeacherIDs() {
-    console.log("Teachers");
+    console.log("Teachers IDs loaded");
     console.log(this.teacherService?.getAllTeachers());
     this.teachersID = [];
-    for (let teacher of this.teacherService?.getAllTeachers()) {
-      this.teachersID.push(teacher.id.concat(' ').concat(teacher.fName)).toString();
-      console.log(teacher);
+    for (let subject of this.teacherService?.getAllTeachers()) {
+      this.teachersID.push(subject.id.concat(' ').concat(subject.fName)).toString();
+      console.log(subject);
     }
   }
 
   setSubjectIDs() {
-
+    console.log("Subjects IDs loaded");
+    console.log(this.subjectService.getAllSubjects());
+    this.subjectIDs = [];
+    for (let subject of this.subjectService?.getAllSubjects()) {
+      this.subjectIDs.push(subject.id.concat(' ').concat(subject.name));
+      console.log(subject);
+    }
   }
 
+  imageInputValidity:boolean = false;
   selectedImageURL: string| ArrayBuffer | null = null;
-  getSelectedImage(image?: any) {
+  getSelectedImage(event?: any) {
+    if(event.target.files?.length){
+      this.imageInputValidity = false;
+    }else{
+      this.imageInputValidity = true;
+    }
     let fileReader = new FileReader();
     fileReader.onload = (e: any) => {
       this.selectedImageURL = e.target.result;
     }
-    fileReader.readAsDataURL(image);
+    fileReader.readAsDataURL(event);
+
   }
 }

@@ -20,7 +20,8 @@
         <p>
           <mat-form-field class="example-full-width">
             <mat-label>Description</mat-label>
-            <textarea formControlName="description" matInput placeholder="Ex. Describe about your course...."></textarea>
+            <textarea formControlName="description" matInput
+                      placeholder="Ex. Describe about your course...."></textarea>
             <mat-error *ngIf="registerCourse.get('description')?.hasError('required')">
               Description is <strong>required</strong>
             </mat-error>
@@ -33,12 +34,21 @@
 
 
   <table>
-    <tr>
-
+    <tr *ngIf="selectedImageURL">
+      <img style="background-size: cover; width: 200px" [src]="selectedImageURL">
     </tr>
     <tr>
       <button mat-raised-button (click)="imageInput.click()">Choose Image</button>
-      <input formControlName="image" type="file" accept="image/*" hidden #imageInput (change)="getSelectedImage($event)">
+
+      <input formControlName="image" type="file" accept="image/*" hidden #imageInput
+             (change)="getSelectedImage($event)">
+
+        <div *ngIf="imageInputValidity">
+          <mat-error *ngIf="registerCourse.get('image')?.hasError('required')">Image is <strong>required</strong>
+          </mat-error>
+        </div>
+
+
     </tr>
   </table>
   <table class="example-full-width" cellpadding="0">
@@ -46,7 +56,7 @@
       <td>
         <mat-form-field class="example-full-width">
           <mat-label>Select Teacher</mat-label>
-          <mat-select (click)="setTeacherIDs()">
+          <mat-select>
             <mat-option>Clear</mat-option>
             <mat-option *ngFor="let teacher of teachersID" value='1'>{{teacher}}</mat-option>
           </mat-select>
@@ -56,7 +66,7 @@
       <td>
         <mat-form-field class="example-full-width">
           <mat-label>Select Subject</mat-label>
-          <mat-select (click)="setSubjectIDs()" formControlName="subjectID">
+          <mat-select formControlName="subjectID">
             <mat-option>Clear</mat-option>
             <mat-option *ngFor="let subject of subjectIDs" value='1'>{{subject}}</mat-option>
           </mat-select>

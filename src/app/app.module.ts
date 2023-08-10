@@ -27,6 +27,10 @@ import { CoursesComponent } from './courses/courses.component';
 import { RegisterCourseComponent } from './courses/register-course/register-course.component';
 import {MatCardModule} from '@angular/material/card';
 import { SubjectComponent } from './courses/subject/subject.component';
+import { CourseCardComponent } from './courses/view/course-card/course-card.component';
+import { CourseCardContainerComponent } from './courses/view/course-card-container/course-card-container.component';
+import { CardNavComponent } from './TestingComponent/card-nav/card-nav.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,10 @@ import { SubjectComponent } from './courses/subject/subject.component';
     TeacherComponent,
     CoursesComponent,
     RegisterCourseComponent,
-    SubjectComponent
+    SubjectComponent,
+    CourseCardComponent,
+    CourseCardContainerComponent,
+    CardNavComponent
 
   ],
   imports: [
@@ -65,7 +72,8 @@ import { SubjectComponent } from './courses/subject/subject.component';
     MatSelectModule,
     MatTableModule,
     AppRoutingModule,
-    MatCardModule
+    MatCardModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

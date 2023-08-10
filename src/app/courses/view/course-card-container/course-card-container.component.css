@@ -1,0 +1,14 @@
+.wije-container {
+  overflow: auto;
+  width: 100%;
+  display: flex;
+}
+.wije-container::-webkit-scrollbar {
+  width: 200px;
+  height: 200px;
+}
+.drag-boundry-container {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+}
