@@ -1,0 +1,36 @@
+<form [formGroup]="loginForm" class="example-form wije-login-form" (ngSubmit)="login($event)"
+      (reset)="restLoginForm($event)">
+  <h1 class="h1 display-2 fw-bold">{{title | uppercase}}</h1>
+
+  <div class="wije-login-form-role">
+    <mat-radio-group formControlName="role" aria-label="Select an option">
+      <mat-radio-button value="student" color="primary">Student</mat-radio-button>
+      <mat-radio-button value="teacher" color="primary">Teacher</mat-radio-button>
+      <mat-error *ngIf="loginForm.get('role')?.hasError('required')&&loginForm.get('role')?.touched">
+        Please select a role
+      </mat-error>
+    </mat-radio-group>
+  </div>
+
+  <mat-form-field class="example-full-width wije-login-form-control">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput formControlName="email">
+<!--    <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is <strong>required</strong></mat-error>-->
+    <mat-error *ngIf="loginForm.get('email')?.hasError('NotRegistered')">Email is Not Registered
+    </mat-error>
+    <mat-error *ngIf="loginForm.get('email')?.hasError('invalidEmail')">Invalid Email</mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width wije-login-form-control">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput formControlName="password">
+<!--    <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is <strong>required</strong></mat-error>-->
+    <mat-error *ngIf="loginForm.get('password')?.hasError('invalidPassword')">Password should be contained 6
+      characters, uppercase,lowercase,number and special character
+    </mat-error>
+  </mat-form-field>
+
+  <mat-checkbox color="primary" formControlName="rememberMe">Remember me</mat-checkbox>
+  <button class="btn-width wije-login-form-control-btn" mat-raised-button="accent" color="basic"
+          [disabled]="loginForm.invalid">Login
+  </button>
+</form>

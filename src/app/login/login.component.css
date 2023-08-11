@@ -1,0 +1,44 @@
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+  margin-left: 16px;
+}
+
+h1{
+  margin-bottom: 4rem;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  font-family: sans, serif;
+}
+
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+
+.wije-login-form{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  min-width: 150px;
+  max-width: 400px;
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+  margin: 1rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+.wije-login-form-control{
+  width: 100%;
+  margin: 1rem;
+}
+
+.wije-login-form-control-btn,
+mat-checkbox{
+  min-width: 100px;
+  margin: 1rem 0;
+}
+.wije-login-form-role{
+  margin: 0.3rem 0;
+}
