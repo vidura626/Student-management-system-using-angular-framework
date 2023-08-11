@@ -1,5 +1,9 @@
 <!--<button mat-raised-button routerLink="register">Register</button>-->
 <!--<router-outlet></router-outlet>-->
 
-<wije-course-card-container [courses]="courses"></wije-course-card-container>
-<!--<wije-register-course></wije-register-course>-->
+
+<wije-course-container>
+<!--  <wije-register-course></wije-register-course>-->
+  <wije-course-header></wije-course-header>
+  <wije-course-card-container [courses]="courses"></wije-course-card-container>
+</wije-course-container>

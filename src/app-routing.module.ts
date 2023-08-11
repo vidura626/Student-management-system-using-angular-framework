@@ -8,10 +8,16 @@ import {TeacherComponent} from "./app/teacher/teacher.component";
 import {CoursesComponent} from "./app/courses/courses.component";
 import {RegisterCourseComponent} from "./app/courses/register-course/register-course.component";
 import {SubjectComponent} from "./app/courses/subject/subject.component";
+import {LoginComponent} from "./app/login/login.component";
+import {loginGuard} from "./app/guards/login.guard";
 
 const routes: Routes = [
   {
+    path: 'login', component: LoginComponent
+  },
+  {
     path: "student", component: StudentComponent,
+    canActivate: [loginGuard],
     children: [
       {path: "", component: RegisterComponent},
       {path: "view", component: TableComponent,},
@@ -19,6 +25,7 @@ const routes: Routes = [
   },
   {
     path: "teacher", component: TeacherComponent,
+    canActivate: [loginGuard],
     children: [
       {path: "", component: RegisterComponent},
       {path: "view", component: TableComponent,},
@@ -34,7 +41,7 @@ const routes: Routes = [
   {
     path: "subject", component: SubjectComponent
   },
-  {path: "", redirectTo: "/student", pathMatch: "full"},
+  {path: "", redirectTo: "/login", pathMatch: "full"},
 
 ]
 

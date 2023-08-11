@@ -12,7 +12,7 @@
 
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>Add to cart</button>
+    <button mat-stroked-button type="button" (click)="btnClickAddToCart($event)">Add to cart</button>
     <p>
       {{courseDetails.price}}
     </p>

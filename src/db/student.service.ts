@@ -1,39 +1,39 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {FormDataInterface} from "../app/student/student/register/formDataInterface";
-import {elementAt} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
 
-  constructor() { }
+  constructor() {
+  }
 
-  deleteStudent(id:string){
+  deleteStudent(id: string) {
 
     this.studentsAr = this.studentsAr.filter((element) => {
-      return element.id !==id;
+      return element.id !== id;
     });
 
   }
 
-  public studentsAr:FormDataInterface[]=[];
+  public studentsAr: FormDataInterface[] = [];
 
-  saveStudent(student: FormDataInterface):boolean {
+  saveStudent(student: FormDataInterface): boolean {
     console.log(student);
     this.studentsAr.push(student);
     return true;
   }
 
-  searchStudent(id:string) {
+  searchStudent(id: string) {
     let find = this.studentsAr.find((element) => {
-      return element.id===id? element: null;
+      return element.id === id ? element : null;
     });
     console.log(find);
     return find;
   }
 
-  getAllStudents():FormDataInterface[]{
+  getAllStudents(): FormDataInterface[] {
     return this.studentsAr;
   }
 }

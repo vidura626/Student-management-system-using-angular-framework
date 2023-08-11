@@ -31,7 +31,15 @@ import { CourseCardComponent } from './courses/view/course-card/course-card.comp
 import { CourseCardContainerComponent } from './courses/view/course-card-container/course-card-container.component';
 import { CardNavComponent } from './TestingComponent/card-nav/card-nav.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-
+import { CourseHeaderComponent } from './courses/course-header/course-header.component';
+import { CourseContainerComponent } from './courses/course-container/course-container.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LoginComponent } from './login/login.component';
+import {FormsModule} from '@angular/forms';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { EmailValidatorDirectiveDirective } from './directives/email-validator-directive.directive';
+import {MatRadioModule} from '@angular/material/radio'
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +53,11 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     SubjectComponent,
     CourseCardComponent,
     CourseCardContainerComponent,
-    CardNavComponent
+    CardNavComponent,
+    CourseHeaderComponent,
+    CourseContainerComponent,
+    LoginComponent,
+    EmailValidatorDirectiveDirective
 
   ],
   imports: [
@@ -73,7 +85,12 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatTableModule,
     AppRoutingModule,
     MatCardModule,
-    DragDropModule
+    DragDropModule,
+    MatBadgeModule,
+    FontAwesomeModule,
+    FormsModule,
+    MatCheckboxModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
