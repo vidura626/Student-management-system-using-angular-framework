@@ -20,6 +20,18 @@ export class LoginService {
   isStudent: boolean = false;
 
   constructor() {
+    this.email = '';
+    // this.password = '';
+    this.rememberMe = false;
+    this.isLogin = false;
+    this.isRegister = false;
+    this.isLogout = true;
+    this.isTeacher = false;
+    this.isStudent = false;
+
+  }
+
+  logOut() {
 
   }
 }

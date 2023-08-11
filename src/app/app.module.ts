@@ -39,7 +39,8 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { EmailValidatorDirectiveDirective } from './directives/email-validator-directive.directive';
-import {MatRadioModule} from '@angular/material/radio'
+import {MatRadioModule} from '@angular/material/radio';
+import { LogOutComponent } from './login/log-out/log-out.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,8 @@ import {MatRadioModule} from '@angular/material/radio'
     CourseHeaderComponent,
     CourseContainerComponent,
     LoginComponent,
-    EmailValidatorDirectiveDirective
+    EmailValidatorDirectiveDirective,
+    LogOutComponent
 
   ],
   imports: [
