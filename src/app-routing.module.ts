@@ -9,7 +9,8 @@ import {CoursesComponent} from "./app/courses/courses.component";
 import {RegisterCourseComponent} from "./app/courses/register-course/register-course.component";
 import {SubjectComponent} from "./app/courses/subject/subject.component";
 import {LoginComponent} from "./app/login/login.component";
-import {loginGuard} from "./app/guards/login.guard";
+import {loginStudentGuard} from "./app/guards/LoginStudent.guard";
+import {loginTeacherGurad} from "./app/guards/login-teacher.gurad";
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: "student", component: StudentComponent,
-    canActivate: [loginGuard],
+    canActivate: [loginStudentGuard],
     children: [
       {path: "", component: RegisterComponent},
       {path: "view", component: TableComponent,},
@@ -25,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: "teacher", component: TeacherComponent,
-    canActivate: [loginGuard],
+    canActivate: [loginTeacherGurad],
     children: [
       {path: "", component: RegisterComponent},
       {path: "view", component: TableComponent,},

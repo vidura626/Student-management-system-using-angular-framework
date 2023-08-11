@@ -21,7 +21,7 @@ export class LoginComponent {
               private router: Router,
               private loginServie: LoginService) {
 
-    /* studentService.saveStudent({
+     studentService.saveStudent({
          id: "1",
          fName: "vidur",
          lName: "kumar",
@@ -39,13 +39,13 @@ export class LoginComponent {
            }
          ],
          birthday: new Date(),
-         email: "vidura@gmail.com",
+         email: "sfsf@gmail.com",
        }
-     )*/
+     )
 
     this.loginForm = formBuilder.group({
       email: new FormControl(
-        '',
+        'sfsf@gmail.com',
         {
           validators: [
             Validators.required,
@@ -54,13 +54,12 @@ export class LoginComponent {
           ],
           updateOn: 'blur'
         }),
-      password: new FormControl('', {
+      password: new FormControl('VI12!@swefwe', {
         validators: [Validators.required,
-          CustomValidators.passwordValidator],
-        updateOn: 'blur'
+          CustomValidators.passwordValidator]
       }),
       rememberMe: new FormControl(false),
-      role: new FormControl('', [Validators.required]),
+      role: new FormControl('student', [Validators.required]),
     })
 
   }
@@ -83,20 +82,17 @@ export class LoginComponent {
         this.loginServie.rememberMe = false;
       }
       this.loginServie.email = this.loginForm.get('email')?.value;
-
+      console.log(this.loginServie);
       if (this.loginServie.isStudent) {
-        this.router.navigateByUrl('student');
+        this.router.navigate(['/student']);
       } else if (this.loginServie.isTeacher) {
-        this.router.navigateByUrl('teacher');
+        this.router.navigate(['/teacher']);
       }
     }
   }
 
 
-  restLoginForm(event
-                  :
-                  any
-  ) {
+  restLoginForm(event: any) {
     event.target.reset();
   }
 }

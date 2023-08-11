@@ -1,11 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { CanActivateFn } from '@angular/router';
 
-import { loginStudentGuard } from './LoginStudent.guard';
+import { loginTeacherGurad } from './login-teacher.gurad';
 
-describe('loginGuardGuard', () => {
+describe('loginTeacherGuradGuard', () => {
   const executeGuard: CanActivateFn = (...guardParameters) =>
-      TestBed.runInInjectionContext(() => loginStudentGuard(...guardParameters));
+      TestBed.runInInjectionContext(() => loginTeacherGurad(...guardParameters));
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
