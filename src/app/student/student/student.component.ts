@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormDataInterface} from "./register/formDataInterface";
 import {StudentService} from "../../../db/student.service";
+import {RegisterComponent} from '../student/register/register.component';
 
 @Component({
   selector: 'wije-student',

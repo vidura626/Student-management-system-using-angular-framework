@@ -10,8 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {NavbarComponent} from './navbar/navbar.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {ReactiveFormsModule} from '@angular/forms';
-import {StudentComponent} from './student/student/student.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -20,47 +19,27 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
-import { TableComponent } from './student/student/table/table.component';
-import { AppRoutingModule } from '../app-routing.module';
-import { TeacherComponent } from './teacher/teacher.component';
-import { CoursesComponent } from './courses/courses.component';
-import { RegisterCourseComponent } from './courses/register-course/register-course.component';
+import {TableComponent} from './student/student/table/table.component';
+import {AppRoutingModule} from '../app-routing.module';
 import {MatCardModule} from '@angular/material/card';
-import { SubjectComponent } from './courses/subject/subject.component';
-import { CourseCardComponent } from './courses/view/course-card/course-card.component';
-import { CourseCardContainerComponent } from './courses/view/course-card-container/course-card-container.component';
-import { CardNavComponent } from './TestingComponent/card-nav/card-nav.component';
+import {CardNavComponent} from './TestingComponent/card-nav/card-nav.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import { CourseHeaderComponent } from './courses/course-header/course-header.component';
-import { CourseContainerComponent } from './courses/course-container/course-container.component';
 import {MatBadgeModule} from '@angular/material/badge';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LoginComponent } from './login/login.component';
-import {FormsModule} from '@angular/forms';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { EmailValidatorDirectiveDirective } from './directives/email-validator-directive.directive';
+import {EmailValidatorDirectiveDirective} from './directives/email-validator-directive.directive';
 import {MatRadioModule} from '@angular/material/radio';
-import { LogOutComponent } from './login/log-out/log-out.component'
+import {CourseModule} from "./courses/course.module";
+import {LoginModule} from "./login/login.module";
+import {StudentModule} from "./student/student.module";
+import {TeacherModule} from "./teacher/teacher.module";
+
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
     NavbarComponent,
-    StudentComponent,
-    TableComponent,
-    TeacherComponent,
-    CoursesComponent,
-    RegisterCourseComponent,
-    SubjectComponent,
-    CourseCardComponent,
-    CourseCardContainerComponent,
     CardNavComponent,
-    CourseHeaderComponent,
-    CourseContainerComponent,
-    LoginComponent,
     EmailValidatorDirectiveDirective,
-    LogOutComponent
-
   ],
   imports: [
     BrowserModule,
@@ -92,7 +71,11 @@ import { LogOutComponent } from './login/log-out/log-out.component'
     FontAwesomeModule,
     FormsModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    CourseModule,
+    LoginModule,
+    StudentModule,
+    TeacherModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,19 +9,22 @@ export const loginStudentGuard: CanActivateFn = (route, state) => {
   const loginService = inject(LoginService);
   let studentService = inject(StudentService);
 
-  const b = loginService.isLogin&&loginService.isStudent&&!loginService.isTeacher;
-  let c:boolean = false;
+  const b = loginService.isLogin && loginService.isStudent && !loginService.isTeacher;
+  let c: boolean = false;
   studentService.getAllStudents().find(student => {
     console.log(b);
-    if (student.email === loginService.email&&b) {
+    if (student.email === loginService.email && b) {
       c = true;
       console.log("Yes")
       return true;
     } else {
       console.log("No")
-      return router.navigate(['/login']);
+      return false;
     }
   })
+  console.log(route)
+  console.log(state)
   console.log("Hee")
-  return (b&&c) ? true : router.navigate(['/login']);
+
+  return (b && c) ? true : router.navigate(['/login']);
 }
