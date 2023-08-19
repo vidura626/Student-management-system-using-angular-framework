@@ -1,7 +1,7 @@
-import { TestBed } from '@angular/core/testing';
-import { CanActivateFn } from '@angular/router';
+import {TestBed} from '@angular/core/testing';
+import {CanActivateFn} from '@angular/router';
 
-import { loginStudentGuard } from './LoginStudent.guard';
+import {loginStudentGuard} from './LoginStudent.guard';
 
 describe('loginGuardGuard', () => {
   const executeGuard: CanActivateFn = (...guardParameters) =>

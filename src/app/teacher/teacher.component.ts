@@ -1,7 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {RegisterComponent} from "../student/student/register/register.component";
-import {TableComponent} from "../student/student/table/table.component";
-import {Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
 import {TeacherService} from "../../db/teacher.service";
 import {FormDataInterface} from "../student/student/register/formDataInterface";
 

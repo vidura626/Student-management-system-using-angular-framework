@@ -1,5 +1,5 @@
-import {Component, OnInit, Output, ViewChild, EventEmitter, Input} from '@angular/core';
-import {FormGroup, FormControl, Validators, FormArray, FormBuilder} from "@angular/forms";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {StudentService} from "../../../../db/student.service";
 import {FormDataInterface} from "./formDataInterface";
 

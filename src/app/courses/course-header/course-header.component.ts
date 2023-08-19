@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {faCartPlus, faCoffee} from '@fortawesome/free-solid-svg-icons';
+import {Component} from '@angular/core';
+import {faCartPlus} from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'wije-course-header',
   templateUrl: './course-header.component.html',

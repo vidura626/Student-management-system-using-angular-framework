@@ -1,5 +1,5 @@
 import {Directive} from '@angular/core';
-import {AbstractControl, ValidationErrors, Validator, Validators} from "@angular/forms";
+import {AbstractControl, ValidationErrors, Validator} from "@angular/forms";
 import {StudentService} from "../../db/student.service";
 
 @Directive({

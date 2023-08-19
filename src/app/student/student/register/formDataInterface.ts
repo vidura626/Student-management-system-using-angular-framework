@@ -1,5 +1,3 @@
-import {FormControl, Validators} from "@angular/forms";
-
 export interface FormDataInterface {
   id: string;
   fName: string,

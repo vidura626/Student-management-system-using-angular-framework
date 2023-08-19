@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {FormDataInterface} from "../app/student/student/register/formDataInterface";
 
 @Injectable({

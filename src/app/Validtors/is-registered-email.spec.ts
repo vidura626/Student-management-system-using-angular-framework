@@ -1,4 +1,4 @@
-import { CustomValidators } from './custom-validators';
+import {CustomValidators} from './custom-validators';
 
 describe('IsRegisteredEmail', () => {
   it('should create an instance', () => {
