@@ -1,0 +1,26 @@
+<div class="dash-container">
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav fixedInViewport class="sidenav-nav" role="navigation" opened mode="side">
+      <mat-nav-list>
+        <a *ngIf="isStudent" mat-list-item routerLink="/student">Student</a>
+        <a *ngIf="isTeacher" mat-list-item routerLink="/teacher">Teacher</a>
+        <a mat-list-item class="bg-body-secondary" routerLink="/course">Courses</a>
+        <a *ngIf="isTeacher" mat-list-item routerLink="/subject">Subject</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="sidenav-nav-content">
+      <mat-toolbar>
+        <span class="title">{{title | uppercase}}</span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="primary"
+                (click)="checkLogin()">
+          <fa-icon [icon]="faSignOut"></fa-icon>
+        </button>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

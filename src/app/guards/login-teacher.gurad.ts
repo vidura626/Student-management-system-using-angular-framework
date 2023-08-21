@@ -19,7 +19,7 @@ export const loginTeacherGurad: CanActivateFn = (route, state) => {
       return true;
     } else {
       console.log("No")
-      return router.navigate(['/login']);;
+      return router.navigate(['/login']);
     }
   })
   console.log("Hee")

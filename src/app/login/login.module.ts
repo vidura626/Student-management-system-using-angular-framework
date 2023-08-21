@@ -27,6 +27,9 @@ import {MatInputModule} from "@angular/material/input";
     MatCheckboxModule,
     MatButtonModule,
     MatInputModule
+  ],
+  exports: [
+    LoginComponent
   ]
 })
 export class LoginModule {

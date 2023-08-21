@@ -1,0 +1,2 @@
+<wije-login (logEvent)="loginEvent($event)" *ngIf="!isLoggedIn"></wije-login>
+<wije-panel *ngIf="isLoggedIn" (logEvent)="loginEvent($event)" [title]="title"></wije-panel>

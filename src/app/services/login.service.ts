@@ -32,6 +32,10 @@ export class LoginService {
   }
 
   logOut() {
-
+    this.isLogin = false;
+    this.isRegister = false;
+    this.isLogout = true;
+    this.isTeacher = false;
+    this.isStudent = false;
   }
 }

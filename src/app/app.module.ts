@@ -15,32 +15,33 @@ import {CourseModule} from "./courses/course.module";
 import {LoginModule} from "./login/login.module";
 import {StudentModule} from "./student/student.module";
 import {TeacherModule} from "./teacher/teacher.module";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatButtonModule} from "@angular/material/button";
+import {NavModule} from "./navbar/nav.module";
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import {DashboardModule} from "./dashboard/dashboard.module";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    CardNavComponent,
     EmailValidatorDirectiveDirective,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    // MatButtonModule,
-    MatIconModule,
-    MatListModule,
     NgbModule,
-    // ReactiveFormsModule,
-    // MatGridListModule,
-    // MatInputModule,
-    // MatExpansionModule,
+    MatNativeDateModule,
+    NavModule,
+    // CourseModule,
+    // LoginModule,
+    // StudentModule,
+    // TeacherModule,
+    DashboardModule,
     AppRoutingModule,
-    CourseModule,
-    LoginModule,
-    StudentModule,
-    TeacherModule
+    MatButtonModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

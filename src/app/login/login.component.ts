@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginInterface} from "./login-interface";
 import {StudentService} from "../../db/student.service";
@@ -16,10 +16,12 @@ export class LoginComponent {
   loginForm!: FormGroup;
   loginDetail!: LoginInterface;
 
+  @Output() logEvent = new EventEmitter();
+
   constructor(private studentService: StudentService
     , private formBuilder: FormBuilder,
               private router: Router,
-              private loginServie: LoginService) {
+              private loginService: LoginService) {
 
      studentService.saveStudent({
          id: "1",
@@ -68,25 +70,28 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
       if (this.loginForm.get('role')?.value === 'student') {
-        this.loginServie.isStudent = true;
-        this.loginServie.isTeacher = false;
+        this.loginService.isStudent = true;
+        this.loginService.isTeacher = false;
       } else if (this.loginForm.get('role')?.value === 'teacher') {
-        this.loginServie.isStudent = false;
-        this.loginServie.isTeacher = true;
+        this.loginService.isStudent = false;
+        this.loginService.isTeacher = true;
       }
-      this.loginServie.isLogin = true;
-      this.loginServie.isLogout = false;
+      this.loginService.isLogin = true;
+      this.loginService.isLogout = false;
       if (this.loginForm.get('rememberMe')?.value === true) {
-        this.loginServie.rememberMe = true;
+        this.loginService.rememberMe = true;
       } else {
-        this.loginServie.rememberMe = false;
+        this.loginService.rememberMe = false;
       }
-      this.loginServie.email = this.loginForm.get('email')?.value;
-      console.log(this.loginServie);
-      if (this.loginServie.isStudent) {
+      this.loginService.email = this.loginForm.get('email')?.value;
+      console.log(this.loginService);
+      if (this.loginService.isStudent) {
+        // this.router.navigate(['/student']);
         this.router.navigate(['/student']);
-      } else if (this.loginServie.isTeacher) {
+        this.logEvent.emit(this.loginService.isStudent);
+      } else if (this.loginService.isTeacher) {
         this.router.navigate(['/teacher']);
+        this.logEvent.emit(this.loginService.isTeacher);
       }
     }
   }

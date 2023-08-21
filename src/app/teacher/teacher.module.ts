@@ -5,6 +5,7 @@ import {TeacherRoutingModule} from './teacher-routing.module';
 import {TeacherComponent} from "./teacher.component";
 import {WijeTableModule} from "../student/student/table/wije-table.module";
 import {WijeRegisterModule} from "../student/student/register/wije-register.module";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {WijeRegisterModule} from "../student/student/register/wije-register.modu
     CommonModule,
     TeacherRoutingModule,
     WijeTableModule,
-    WijeRegisterModule
+    WijeRegisterModule,
+    MatButtonModule
   ]
 })
 export class TeacherModule {
